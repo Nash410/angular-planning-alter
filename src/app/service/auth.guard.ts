@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 
 @Injectable()
-export class AuthGuarde implements CanActivate {
+export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) { }
 

@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
 export class SignupComponent implements OnInit {
 
