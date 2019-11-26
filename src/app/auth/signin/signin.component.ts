@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SigninComponent implements OnInit {
 
   signinForm: FormGroup;
   errorMessage: string;
