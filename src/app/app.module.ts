@@ -29,7 +29,9 @@ const appRoutes: Routes = [
   { path: 'abs/view/:id', canActivate: [AuthGuard], component: SingleAbsComponent },
   { path: 'alter', canActivate: [AuthGuard], component: AlterComponent },
   { path: 'alter/new', canActivate: [AuthGuard], component: FormAlterComponent },
-  { path: 'alter/view/:id', canActivate: [AuthGuard], component: SingleAlterComponent }  
+  { path: 'alter/view/:id', canActivate: [AuthGuard], component: SingleAlterComponent }, 
+  /*{ path: '', redirectTo: 'books', pathMatch: 'full' },
+  { path: '**', redirectTo: 'books' }  */
 ];
 
 
