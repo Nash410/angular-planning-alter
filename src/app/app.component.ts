@@ -9,7 +9,7 @@ import * as firebase from 'firebase';
 export class AppComponent  {
   constructor(){
     const config = {
-      apiKey: "AIzaSyAA-9XbgYNft6uYdMB71veOfebyuI6BNaA",
+      apiKey: "",
       authDomain: "planningalter-34ec0.firebaseapp.com",
       databaseURL: "https://planningalter-34ec0.firebaseio.com",
       projectId: "planningalter-34ec0",
