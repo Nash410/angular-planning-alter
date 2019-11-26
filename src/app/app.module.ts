@@ -24,12 +24,12 @@ import { HeaderComponent } from './header/header.component';
 const appRoutes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
-  { path: 'abs', component: AbsComponent },
-  { path: 'abs/new', component: FormAbsComponent },
-  { path: 'abs/view/:id', component: SingleAbsComponent },
-  { path: 'alter', component: AlterComponent },
-  { path: 'alter/new', component: FormAlterComponent },
-  { path: 'alter/view/:id', component: SingleAlterComponent }  
+  { path: 'abs', canActivate: [AuthGuard], component: AbsComponent },
+  { path: 'abs/new', canActivate: [AuthGuard], component: FormAbsComponent },
+  { path: 'abs/view/:id', canActivate: [AuthGuard], component: SingleAbsComponent },
+  { path: 'alter', canActivate: [AuthGuard], component: AlterComponent },
+  { path: 'alter/new', canActivate: [AuthGuard], component: FormAlterComponent },
+  { path: 'alter/view/:id', canActivate: [AuthGuard], component: SingleAlterComponent }  
 ];
 
 
