@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { AlterModel } from '../model/alter-model';
+import { AlterModel } from '../model/alter.model';
 import * as firebase from 'firebase';
 
 
