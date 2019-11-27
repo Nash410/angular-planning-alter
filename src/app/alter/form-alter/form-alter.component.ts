@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlterService } from '../../service/alter.service';
+import { AlterModel } from '../../model/alter.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-alter',
@@ -7,13 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAlterComponent implements OnInit {
 
-    ngOnInit() {
-    }
-/*
 alterForm: FormGroup;
-  errorMessage: string;
 
-  constructor(private formBuilder: FormBuilder,
+constructor(private formBuilder: FormBuilder,
               private alterService: AlterService,
               private router: Router) { }
 
@@ -43,19 +43,14 @@ alterForm: FormGroup;
     }
 }
 
-  onSubmit() {
+  onSave() {
     const nom_alternant = this.alterForm.get('nom_alternant').value;
     const dateD = this.alterForm.get('dateD').value;
     const dateF = this.alterForm.get('dateF').value;
+    const newAlter = new AlterModel(nom_alternant, dateD, dateF);
+    this.alterService.createNewAlter(newAlter)
+    this.router.navigate(['/alter']);
 
-    this.alterService.createNewAlter(nom_alternant, dateD, dateF).then(
-      () => {
-        this.router.navigate(['/alter']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    );
   }
-*/
+
 }
