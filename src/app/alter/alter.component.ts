@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AlterService } from '../service/alter.service';
+import { AlterModel } from '../model/alter.model';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,53 +9,38 @@ import { Router } from '@angular/router';
   templateUrl: './alter.component.html',
   styleUrls: ['./alter.component.css']
 })
-export class AlterComponent implements OnInit {
+export class AlterComponent implements OnInit, OnDestroy {
 
-  alterForm: FormGroup;
-  errorMessage: string;
+  alters: AlterModel[];
+  altersSubscription: Subscription;
 
-  constructor(private formBuilder: FormBuilder,
-              private alterService: AlterService,
-              private router: Router) { }
+  constructor(private altersService: AlterService, private router: Router){}
 
-  ngOnInit() {
-    this.initForm();
-  }
-
-  initForm() {
-    this.alterForm = this.formBuilder.group({
-      nom_alternant : ['', [Validators.required, Validators.email]],
-      dateD : ['', [Validators.required]],
-      dateF : ['', [Validators.required]]
-
-    }, {validator: this.dateLessThan('dateD', 'dateF')});
-  }
-
-  dateLessThan(from: string, to: string) {
-    return (group: FormGroup): {[key: string]: any} => {
-      let f = group.controls[from];
-      let t = group.controls[to];
-      if (f.value > t.value) {
-        return {
-          dates: "Période de contrat incorrecte."
-        };
+  ngOnInit(){
+    this.altersSubscription = this.altersService.altersSubject.subscribe(
+      (alters: AlterModel[]) => {
+        this.alters = alters;
       }
-      return {};
-    }
-}
-
-  onSubmit() {
-    const nom_alternant = this.alterForm.get('nom_alternant').value;
-    const dateD = this.alterForm.get('dateD').value;
-    const dateF = this.alterForm.get('dateF').value;
-
-    this.alterService.createNewAlter(nom_alternant, dateD, dateF).then(
-      () => {
-        this.router.navigate(['/alter']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    );
+    )
+    this.altersService.emitAlter();
   }
+
+  onNewAlter(){
+    this.router.navigate(['/alter', 'new']);
+  }
+
+  onDeleteAlter(alter:AlterModel){
+    this.altersService.removeAlter(alter);
+  }
+
+  onViewAlter(id: number){
+    this.router.navigate(['/alter', 'view', id]);
+  }
+
+  ngOnDestroy(){
+    this.altersSubscription.unsubscribe();
+
+  }
+
+  
 }

@@ -1,4 +1,4 @@
-import { AlterModel} from './alter-model';
+import { AlterModel} from './alter.model';
 
 export class AbsModel {
   private idAbs:number;

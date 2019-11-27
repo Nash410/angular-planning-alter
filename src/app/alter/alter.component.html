@@ -1,32 +1,21 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Créer un alternant</h2>
-    <form [formGroup]="alterForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="nom_alternant">Nom de l'Alternant</label>
-        <input type="text"
-               id="nom_alternant"
-               class="form-control"
-               formControlName="nom_alternant" required>
-      </div>
-      <div class="form-group">
-        <label for="dateD">Date de début de contrat</label>
-        <input type="date"
-               id="dateD"
-               class="form-control"
-               formControlName="dateD" required>
-      </div>
-      <div class="form-group">
-        <label for="dateF">Date de fin de contrat</label>
-        <input type="date"
-               id="dateF"
-               class="form-control"
-               formControlName="dateF" required>
-      </div>
-      <button class="btn btn-primary"
-              type="submit"
-              [disabled]="alterForm.invalid">Enregistrer les données de l'alternant</button>
-    </form>
-    <p class="text-danger">{{ errorMessage }}</p>
-  </div>
+	<div class="col-xs-12">
+		<h2>Alternants</h2>
+		<div class="list-group">
+			<button
+        class="list-group-item"
+        *ngFor="let alter of alters; let i = index"
+        (click)="onViewAlter(i)">
+        <h3 class="list-group-item-heading">
+          {{ alter.nomAlter }}
+          <button class="btn btn-default pull-right" (click)="onDeleteAlter(alter)">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+			</h3>
+			<p class="list-group-item-text">Date de début de contrat : {{ alter.dateDebutContrat }}</p>
+			<p class="list-group-item-text">Date de Fin de contrat : {{ alter.dateFinContrat }}</p>
+			</button>
+		</div>
+		<button class="btn btn-primary" (click)="onNewAlter()">Nouvel Alternant</button>
+	</div>
 </div>
