@@ -19,9 +19,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
  import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const appRoutes: Routes = [
+  { path: '', component: WelcomeComponent },
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
   { path: 'abs', canActivate: [AuthGuard], component: AbsComponent },
@@ -30,14 +32,14 @@ const appRoutes: Routes = [
   { path: 'alter', canActivate: [AuthGuard], component: AlterComponent },
   { path: 'alter/new', canActivate: [AuthGuard], component: FormAlterComponent },
   { path: 'alter/view/:id', canActivate: [AuthGuard], component: SingleAlterComponent }, 
-  /*{ path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: '**', redirectTo: 'books' }  */
+  { path: '', redirectTo: 'WelcomeComponent', pathMatch: 'full' },
+  { path: '**', redirectTo: 'WelcomeComponent' }
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(appRoutes) ],
-  declarations: [ AppComponent, SignupComponent, SigninComponent, AbsComponent, SingleAbsComponent, FormAbsComponent, AlterComponent, FormAlterComponent, SingleAlterComponent, HeaderComponent],
+  declarations: [ AppComponent, SignupComponent, SigninComponent, AbsComponent, SingleAbsComponent, FormAbsComponent, AlterComponent, FormAlterComponent, SingleAlterComponent, HeaderComponent, WelcomeComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService, AuthGuard, AbsService, AlterService]
 })
