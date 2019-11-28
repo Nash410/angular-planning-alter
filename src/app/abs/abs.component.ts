@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-abs',
@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbsComponent implements OnInit {
 
-  constructor() { }
+  @Input() alterId: number;
+
+  constructor() {}
 
   ngOnInit() {
   }

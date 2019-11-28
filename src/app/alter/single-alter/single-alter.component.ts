@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SingleAlterComponent implements OnInit {
 
   alter: AlterModel;
+  alterId: number;
 
   constructor(private route: ActivatedRoute, private altersService: AlterService,
               private router: Router) { }

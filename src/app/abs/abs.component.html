@@ -1,3 +1,10 @@
-<p>
-abs works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+    <li class="list-group-item" *ngFor="let abs of absList">Absent du  {{ abs.dateDebutAbs }} au {{ abs.dateFinAbs }} pour cause de {{ abs.libelleAbs }}</li>
+    </ul>
+  </div>
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-primary" (click)="createNewAbs()">Ajouter une absence</button>
+  </div>
+</div>
