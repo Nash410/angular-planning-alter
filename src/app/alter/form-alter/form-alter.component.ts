@@ -7,13 +7,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-alter',
   templateUrl: './form-alter.component.html',
-  styleUrls: ['./form-alter.component.css']
+  styleUrls: ['../../../styleForm.css']
 })
 export class FormAlterComponent implements OnInit {
 
 alterForm: FormGroup;
 errorMessage: string;
-
 
 constructor(private formBuilder: FormBuilder,
               private alterService: AlterService,

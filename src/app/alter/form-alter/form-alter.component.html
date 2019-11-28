@@ -1,31 +1,29 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Créer un alternant</h2>
-    <form [formGroup]="alterForm" (ngSubmit)="onSaveAlter()">
-      <div class="form-group">
-        <label for="nom_alternant">Nom de l'Alternant</label>
-        <input type="text"
+<div class="wrapper">
+	<form [formGroup]="alterForm" class="form-signin" (ngSubmit)="onSaveAlter()">
+		<h2 class="form-signin-heading">Créer un alternant</h2>
+		<div class="form-group">
+			<label for="nom_alternant">Nom de l'Alternant</label>
+			<input type="text"
                id="nom_alternant"
                class="form-control"
                formControlName="nom_alternant" required>
       </div>
-      <div class="form-group">
-        <label for="dateD">Date de début de contrat</label>
-        <input type="date"
+			<div class="form-group">
+				<label for="dateD">Date de début de contrat</label>
+				<input type="date"
                id="dateD"
                class="form-control"
                formControlName="dateD" required>
       </div>
-      <div class="form-group">
-        <label for="dateF">Date de fin de contrat</label>
-        <input type="date"
+				<div class="form-group">
+					<label for="dateF">Date de fin de contrat</label>
+					<input type="date"
                id="dateF"
                class="form-control"
                formControlName="dateF" required>
       </div>
-      <button class="btn btn-primary"
+					<button class="btn btn-primary"
               type="submit"
               [disabled]="alterForm.invalid">Enregistrer les données de l'alternant</button>
-    </form>
-  </div>
+	</form>
 </div>
