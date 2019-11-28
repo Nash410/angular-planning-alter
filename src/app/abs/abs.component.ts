@@ -16,6 +16,7 @@ export class AbsComponent implements OnInit, OnDestroy {
   absList: AbsModel[];
   absSubscription: Subscription;
   @Input() alterId: number;
+  @Input() nomAlter:string;
 
   constructor(private absService: AbsService, private router: Router) {}
 

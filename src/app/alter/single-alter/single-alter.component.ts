@@ -19,8 +19,8 @@ export class SingleAlterComponent implements OnInit {
 
   ngOnInit() {
     this.alter = new AlterModel('', '', '');
-    const id = this.route.snapshot.params['id'];
-    this.altersService.getSingleAlter(+id).then(
+    this.alterId = this.route.snapshot.params['id'];
+    this.altersService.getSingleAlter(+this.alterId).then(
       (alter:AlterModel)=>{
         this.alter = alter;
       }
