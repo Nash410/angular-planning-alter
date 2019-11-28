@@ -4,6 +4,8 @@ import { AbsService } from '../service/abs.service';
 import { PrettyDateService } from '../service/pretty-date.service';
 import { AbsModel } from '../model/abs.model';
 import { Subscription } from 'rxjs';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -18,6 +20,7 @@ export class AbsComponent implements OnInit, OnDestroy {
   absSubscription: Subscription;
   @Input() alterId: number;
   @Input() nomAlter:string;
+  faPlus = faPlus;
 
   constructor(private absService: AbsService, private router: Router, private prettyDateService: PrettyDateService) {}
 
