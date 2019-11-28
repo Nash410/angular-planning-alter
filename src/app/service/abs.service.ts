@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AlterModel } from '../model/alter.model';
-import { AbsModel } from '../model/alter.model';
+import { AbsModel } from '../model/abs.model';
 
 import * as firebase from 'firebase';
 
