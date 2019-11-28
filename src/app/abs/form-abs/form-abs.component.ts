@@ -14,10 +14,11 @@ export class FormAbsComponent implements OnInit {
 
 absForm: FormGroup;
 @Input() nomAlter:string;
-libelleAbs = [
-    {name: 'Formation', abbrev: 'FORM'},
-    {name: 'Congé', abbrev: 'CONG'},
-    {name: 'Autre', abbrev: 'AUTR'}
+
+libelleAbsList = [
+    {name: 'Formation'},
+    {name: 'Congé'},
+    {name: 'Autre'}
   ];
 
 constructor(private formBuilder: FormBuilder,
@@ -30,7 +31,7 @@ constructor(private formBuilder: FormBuilder,
 
   initForm() {
     this.absForm = this.formBuilder.group({
-      libelleAbs : new FormControl(this.libelleAbs[2]),
+      libelleAbs :  [null, [ Validators.required ] ],
       dateD : ['', [Validators.required]],
       dateF : ['', [Validators.required]]
     });
@@ -38,6 +39,7 @@ constructor(private formBuilder: FormBuilder,
 
   onSaveAbs() {
     const libelleAbs = this.absForm.get('libelleAbs').value;
+    console.log(this.absForm.get('libelleAbs'));
     const dateD = this.absForm.get('dateD').value;
     const dateF = this.absForm.get('dateF').value;
     const idAlter = this.route.snapshot.paramMap.get('idAlter');

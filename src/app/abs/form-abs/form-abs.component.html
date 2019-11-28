@@ -1,32 +1,30 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Créer une absence pour {{ nomAlter }}</h2>
-    <form [formGroup]="absForm" (ngSubmit)="onSaveAbs()">
-      <div class="form-group">
-        <label for="libelleAbs">Motif de l'absence</label>
-        <select class="selectpicker"  name="libelleAbs" id="libelleAbs" required>
-          <option value="FORM" selected>Formation</option>
-          <option value="CONG">Congé</option>
-          <option value="AUTR">Autre</option>
+	<div class="col-sm-8 col-sm-offset-2">
+		<h2>Créer une absence pour {{ nomAlter }}</h2>
+		<form [formGroup]="absForm" (ngSubmit)="onSaveAbs()">
+			<div class="form-group">
+				<label for="libelleAbs">Motif de l'absence</label>
+				<select class="selectpicker"  name="libelleAbs" id="libelleAbs" formControlName="libelleAbs">
+           <option *ngFor="let motif of libelleAbsList" [value]="motif.name">{{motif.name}}</option>
         </select>
-      </div>
-      <div class="form-group">
-        <label for="dateD">Date de début d'absence</label>
-        <input type="date"
+			</div>
+			<div class="form-group">
+				<label for="dateD">Date de début d'absence</label>
+				<input type="date"
                id="dateD"
                class="form-control"
-               formControlName="dateD" required>
+               formControlName="dateD">
       </div>
-      <div class="form-group">
-        <label for="dateF">Date de fin d'absence</label>
-        <input type="date"
+				<div class="form-group">
+					<label for="dateF">Date de fin d'absence</label>
+					<input type="date"
                id="dateF"
                class="form-control"
-               formControlName="dateF" required>
+               formControlName="dateF">
       </div>
-      <button class="btn btn-primary"
+					<button class="btn btn-primary"
               type="submit"
               [disabled]="absForm.invalid">Enregistrer l'absence</button>
-    </form>
-  </div>
+		</form>
+	</div>
 </div>

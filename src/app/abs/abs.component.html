@@ -2,8 +2,8 @@
 <div class="row">
 	<div class="col-xs-12">
 		<ul class="list-group">
-			<li class="list-group-item" *ngFor="let abs of absList">Absent du {{ abs.dateDebutAbs }} au
-				{{ abs.dateFinAbs }} pour cause de {{ abs.libelleAbs }}</li>
+			<li class="list-group-item" *ngFor="let abs of absList">Absent du {{ getPrettyDate(abs.dateDebutAbs)  | date:'MM/dd/yyyy' }} au
+				{{ getPrettyDate(abs.dateFinAbs)  | date:'MM/dd/yyyy' }} pour cause de {{ abs.libelleAbs }}</li>
 		</ul>
 	</div>
 </div>

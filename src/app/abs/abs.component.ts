@@ -23,7 +23,13 @@ export class AbsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.absSubscription = this.absService.absSubject.subscribe(
       (alters: AbsModel[]) => {
-        this.absList = alters;
+        this.absList = alters; 
+
+        //Prettyfier la date
+        for(let abs in this.absList){
+          this.absList[abs].dateDebutAbs = this.getPrettyDate(this.absList[abs].dateDebutAbs);
+          this.absList[abs].dateFinAbs = this.getPrettyDate(this.absList[abs].dateFinAbs);
+        }       
       }
     )
     this.absService.emitAbs();
@@ -43,6 +49,11 @@ export class AbsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.absSubscription.unsubscribe();
+  }
+
+  getPrettyDate(strDate){
+    let date = new Date(strDate);
+    return date.toLocaleDateString().split(',', 1);
   }
 
 }
