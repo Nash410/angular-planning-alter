@@ -1,22 +1,24 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active">
-        <a routerLink="alter">Alternant</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="active" *ngIf="!isAuth">
-        <a routerLink="auth/signup">Créer un compte</a>
-      </li>
-      <li routerLinkActive="active" *ngIf="!isAuth">
-        <a routerLink="auth/signin">Connexion</a>
-      </li>
-      <li>
-        <a (click)="onSignOut()"
-           style="cursor:pointer"
-           *ngIf="isAuth">Déconnexion</a>
-      </li>
-    </ul>
-  </div>
+
+<nav class="navbar navbar-dark bg-dark">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" routerLink="/">WhereIsMyAlternant?</a>
+		</div>
+		<ul class="nav navbar-nav"  *ngIf="isAuth">
+			<li routerLinkActive="active"  class="btn btn-outline-primary btn-lg">
+				<a routerLink="alter" class="text-white">Alternant</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav">
+			<li routerLinkActive="active" *ngIf="!isAuth" class="btn btn-outline-primary mb-2">
+				<a routerLink="auth/signup" class="text-white">Créer un compte</a>
+			</li>
+			<li routerLinkActive="active" *ngIf="!isAuth"  class="btn btn-outline-primary">
+				<a routerLink="auth/signin" class="text-white">Connexion</a>
+			</li>
+			<li class="btn btn-outline-primary btn-lg" *ngIf="isAuth"> 
+				<a (click)="onSignOut()" style="cursor:pointer" class="text-white" >Déconnexion</a>
+			</li>
+		</ul>
+	</div>
 </nav>

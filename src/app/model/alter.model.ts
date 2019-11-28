@@ -7,6 +7,5 @@ export class AlterModel {
     this.nomAlter = nomAlter;
     this.dateDebutContrat = dateDebutContrat;
     this.dateFinContrat = dateFinContrat;
-    //this.pa_user = pa_user;
   }
 }

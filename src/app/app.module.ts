@@ -20,6 +20,9 @@ import {ReactiveFormsModule} from '@angular/forms';
  import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { PrettyDateService } from './service/pretty-date.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 const appRoutes: Routes = [
@@ -38,10 +41,11 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(appRoutes) ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(appRoutes),
+    FontAwesomeModule ],
   declarations: [ AppComponent, SignupComponent, SigninComponent, AbsComponent, SingleAbsComponent, FormAbsComponent, AlterComponent, FormAlterComponent, SingleAlterComponent, HeaderComponent, WelcomeComponent],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService, AuthGuard, AbsService, AlterService]
+  providers: [AuthService, AuthGuard, AbsService, AlterService, PrettyDateService]
 })
 export class AppModule { }
 

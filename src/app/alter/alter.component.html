@@ -1,21 +1,16 @@
+<button class="btn btn-primary mb-5 mt-5 btn-lg" (click)="onNewAlter()"><fa-icon [icon]="faPlus"></fa-icon>
+Nouvel Alternant</button>
 <div class="row">
-	<div class="col-xs-12">
-		<h2>Alternants</h2>
-		<div class="list-group">
-			<button
-        class="list-group-item"
-        *ngFor="let alter of alters; let i = index"
-        (click)="onViewAlter(i)">
-        <h3 class="list-group-item-heading">
-          {{ alter.nomAlter }}
-          <button class="btn btn-default pull-right" (click)="onDeleteAlter(alter)">
-            <span class="glyphicon glyphicon-minus"></span>
-          </button>
-			</h3>
-			<p class="list-group-item-text">Date de début de contrat : {{ alter.dateDebutContrat }}</p>
-			<p class="list-group-item-text">Date de Fin de contrat : {{ alter.dateFinContrat }}</p>
-			</button>
+	<div class="col-sm" *ngFor="let alter of alters; let i = index">
+		<div class="card m-2" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{ alter.nomAlter }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Début de contrat:
+					<span class="font-weight-bold">{{ alter.dateDebutContrat }}</span></h6>
+				<h6 class="card-subtitle mb-2 text-muted">Fin de contrat:
+					<span class="font-weight-bold">{{ alter.dateFinContrat }}</span></h6>
+				<button type="button" class="btn btn-outline-success" (click)="onViewAlter(i)">Voir l'alternant en détail</button>
+			</div>
 		</div>
-		<button class="btn btn-primary" (click)="onNewAlter()">Nouvel Alternant</button>
 	</div>
 </div>

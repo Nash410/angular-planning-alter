@@ -1,3 +1,8 @@
-<div class="center">
-	<h1 class="center">Bienvenue sur l'application de gestions de présences des alternants !</h1>
+<div class="m-5 p-3">
+	<h1>WhereIsMyAlternant</h1>
+	<div class="lead">Envie de savoir pourquoi votre alternant ne vous a pas encore remis votre café et votre croissant ?
+    <br>
+    <span *ngIf="!isAuth">Connectez-vous et découvrez pourquoi !</span> 
+    <span *ngIf="isAuth">Vérifiez sur le planning ci-dessous !</span>
+    </div>
 </div>

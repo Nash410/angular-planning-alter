@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbsService } from '../service/abs.service';
+import { PrettyDateService } from '../service/pretty-date.service';
 import { AbsModel } from '../model/abs.model';
 import { Subscription } from 'rxjs';
 
@@ -18,17 +19,16 @@ export class AbsComponent implements OnInit, OnDestroy {
   @Input() alterId: number;
   @Input() nomAlter:string;
 
-  constructor(private absService: AbsService, private router: Router) {}
+  constructor(private absService: AbsService, private router: Router, private prettyDateService: PrettyDateService) {}
 
   ngOnInit() {
     this.absSubscription = this.absService.absSubject.subscribe(
       (alters: AbsModel[]) => {
-        this.absList = alters; 
-
+        this.absList = alters;     
         //Prettyfier la date
         for(let abs in this.absList){
-          this.absList[abs].dateDebutAbs = this.getPrettyDate(this.absList[abs].dateDebutAbs);
-          this.absList[abs].dateFinAbs = this.getPrettyDate(this.absList[abs].dateFinAbs);
+          this.absList[abs].dateDebutAbs = this.prettyDateService.getPrettyDate(this.absList[abs].dateDebutAbs);
+          this.absList[abs].dateFinAbs = this.prettyDateService.getPrettyDate(this.absList[abs].dateFinAbs);
         }       
       }
     )
@@ -51,9 +51,6 @@ export class AbsComponent implements OnInit, OnDestroy {
     this.absSubscription.unsubscribe();
   }
 
-  getPrettyDate(strDate){
-    let date = new Date(strDate);
-    return date.toLocaleDateString().split(',', 1);
-  }
+
 
 }
