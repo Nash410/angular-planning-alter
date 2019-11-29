@@ -1,9 +1,8 @@
 <div class="row plan-year">
   <div *ngFor="let year of years">
-    <div *ngFor="let month of months">
-      <div *ngFor="let day of week">
-        {{ year.toString() + ' ' + month + ' ' + day }}
-      </div>
+    <div *ngFor="let month of months; let i = index">
+      <div *ngFor="let day of"
+        {{ year.toString() + ' ' + month }}
     </div>
   </div>
 </div>

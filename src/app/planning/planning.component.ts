@@ -20,9 +20,13 @@ export class PlanningComponent implements OnInit {
     this.week  = new Array("dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"); 
     let currentYear = this.today.getFullYear();
     this.years = new Array(currentYear-1, currentYear, currentYear+1);
+
   }
 
+//TODO / A FAIRE OU REFAIRE
 
-
+  getNumberDaysInMonth(month, year){
+    return new Date(year, month, 0).getDate();
+  }
 
 }
