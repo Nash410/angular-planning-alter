@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { AbsService } from '../../service/abs.service';
+import { AlterService } from '../../service/alter.service';
 import { AbsModel } from '../../model/abs.model';
 import { Router, ActivatedRoute } from '@angular/router';
  
@@ -8,12 +9,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-form-abs',
   templateUrl: './form-abs.component.html',
-  styleUrls: ['./form-abs.component.css']
+  styleUrls: ['../../../styleForm.css']
 })
 export class FormAbsComponent implements OnInit {
 
-absForm: FormGroup;
-@Input() nomAlter:string;
+absForm: FormGroup;$
 
 libelleAbsList = [
     {name: 'Formation'},
@@ -23,7 +23,9 @@ libelleAbsList = [
 
 constructor(private formBuilder: FormBuilder,
               private absService: AbsService,
-              private router: Router, private route: ActivatedRoute) { }
+              private router: Router, 
+              private route: ActivatedRoute,
+              private alterService: AlterService) { }
 
   ngOnInit() {
     this.initForm();

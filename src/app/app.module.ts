@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PrettyDateService } from './service/pretty-date.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PlanningComponent } from './planning/planning.component';
 
 
 
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(appRoutes),
     FontAwesomeModule ],
-  declarations: [ AppComponent, SignupComponent, SigninComponent, AbsComponent, SingleAbsComponent, FormAbsComponent, AlterComponent, FormAlterComponent, SingleAlterComponent, HeaderComponent, WelcomeComponent],
+  declarations: [ AppComponent, SignupComponent, SigninComponent, AbsComponent, SingleAbsComponent, FormAbsComponent, AlterComponent, FormAlterComponent, SingleAlterComponent, HeaderComponent, WelcomeComponent, PlanningComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService, AuthGuard, AbsService, AlterService, PrettyDateService]
 })

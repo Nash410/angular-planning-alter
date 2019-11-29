@@ -1,7 +1,6 @@
-<div class="row">
-	<div class="col-sm-8 col-sm-offset-2">
-		<h2>Créer une absence pour {{ nomAlter }}</h2>
-		<form [formGroup]="absForm" (ngSubmit)="onSaveAbs()">
+<div class="wrapper">
+		<h2>Créer une absence </h2>
+		<form [formGroup]="absForm" class="form-signin"  (ngSubmit)="onSaveAbs()">
 			<div class="form-group">
 				<label for="libelleAbs">Motif de l'absence</label>
 				<select class="selectpicker"  name="libelleAbs" id="libelleAbs" formControlName="libelleAbs">
@@ -26,5 +25,4 @@
               type="submit"
               [disabled]="absForm.invalid">Enregistrer l'absence</button>
 		</form>
-	</div>
 </div>
