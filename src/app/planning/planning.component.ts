@@ -11,6 +11,8 @@ export class PlanningComponent implements OnInit {
   years: number[];
   months: string[];
   week: string[];
+  numberDayInMonth: any[];
+  
 
   constructor() {}
 
@@ -21,12 +23,15 @@ export class PlanningComponent implements OnInit {
     let currentYear = this.today.getFullYear();
     this.years = new Array(currentYear-1, currentYear, currentYear+1);
 
+
   }
 
-//TODO / A FAIRE OU REFAIRE
+//TODO A FAIRE OU REFAIRE
 
   getNumberDaysInMonth(month, year){
     return new Date(year, month, 0).getDate();
   }
+
+  
 
 }
